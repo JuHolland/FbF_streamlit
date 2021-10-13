@@ -27,7 +27,7 @@ districts = [all_districts[i] for i,d in enumerate([dist1, dist2]) if d]
 index = col1.multiselect("Index", list(set(df.Index)), [])
 if not index:
     index = list(set(df.Index))
-ylim = col1.slider('Value limits',df.Value.min(), df.Value.max(), (df.Value.min(), df.Value.max()))
+ylim = col1.slider('Value limits',float(df.Value.min()), float(df.Value.max()), (float(df.Value.min()), float(df.Value.max())))
 
 # Filtering data
 data = df[np.logical_and(df['Index'].isin(index), df['District'].isin(districts))]
