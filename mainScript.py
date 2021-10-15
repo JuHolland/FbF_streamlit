@@ -3,7 +3,6 @@ import streamlit as st
 import altair as alt
 import numpy as np
 
-import introduction
 import part1
 import part2
 import part3
