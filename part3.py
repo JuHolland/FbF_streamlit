@@ -15,6 +15,7 @@ def main():
     st.markdown('#')
 
     df1 = pd.read_csv("Data/Metrics/Metrics_1_dcast.csv") 
+    df1['Year'] = [int(i) for i in df1.Year]
     df2 = pd.read_csv("Data/Metrics/long.csv") 
 
     col1, col2 = st.columns([1,1]) 
