@@ -38,11 +38,11 @@ def main():
 
 
     if select_part == 'Part 1':
-        part1.main(ss)
+        part1.tab1(ss)
     elif select_part == 'Part 2':
-        part2.main(ss)
+        part2.tab2(ss)
     elif select_part == 'Part 3':
-        part3.main(ss)
+        part3.tab3(ss)
 
 
 if __name__ == "__main__":

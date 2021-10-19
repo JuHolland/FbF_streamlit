@@ -7,7 +7,7 @@ import numpy as np
 import SessionState
 
     
-def main(ss):
+def tab2(ss):
 
     st.title("Drought occurrence \n") 
     st.markdown('#')

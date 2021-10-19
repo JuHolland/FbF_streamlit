@@ -10,7 +10,7 @@ def remove_duplicates(df):
 
     return df_clean
     
-def main(ss):
+def tab3(ss):
     st.title("Forecast triggers \n") 
     st.markdown('#')
 

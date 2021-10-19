@@ -6,7 +6,7 @@ import numpy as np
 import SessionState
 
     
-def main(ss):
+def tab1(ss):
     st.title("Rainfall \n") 
     st.markdown('#')
 
