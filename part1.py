@@ -5,6 +5,20 @@ import numpy as np
 
 import SessionState
 
+def reset(ss):
+    ss.a1 = True
+    ss.b1 = True
+    ss.c1 = True
+    ss.d1 = True
+    ss.e1 = []
+    ss.f1 = True
+    ss.g1 = True
+    ss.h1 = True
+    ss.i1 = True
+    ss.j1 = []
+    ss.k1 = []
+    ss.l1 = []
+
     
 def tab1(ss):
     st.title("Rainfall \n") 

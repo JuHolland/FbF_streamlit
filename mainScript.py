@@ -35,14 +35,30 @@ def main():
         st.title("Data \n")
         st.info("The datasets are available on GitHub at the following [link](https://github.com/JuHolland/Dashboard_FbF)")
 
+        st.markdown('###')
+        st.markdown('###')
+        reset = st.sidebar.button('Reset')
 
 
     if select_part == 'Part 1':
-        part1.tab1(ss)
+        if reset == True:
+            part1.reset(ss)
+            part1.tab1(ss)
+        else:
+            part1.tab1(ss)
     elif select_part == 'Part 2':
-        part2.tab2(ss)
+        if reset == True:
+            part2.reset(ss, (float(df1.Value.min()), float(df1.Value.max())), (float(df2.Probability.min()), float(df2.Probability.max())))
+            part2.tab2(ss)
+        else:
+            part2.tab2(ss)
     elif select_part == 'Part 3':
-        part3.tab3(ss)
+        if reset == True:
+            part3.reset(ss)
+            part3.tab3(ss)
+        else:
+            part3.tab3(ss)
+
 
 
 if __name__ == "__main__":

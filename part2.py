@@ -6,6 +6,22 @@ import numpy as np
 
 import SessionState
 
+def reset(ss, lim1, lim2):
+    ss.a2 = True
+    ss.b2 = True
+    ss.c2 = True
+    ss.d2 = True
+    ss.e2 = []
+    ss.f2 = lim1
+    ss.g2 = True
+    ss.h2 = True
+    ss.i2 = True
+    ss.j2 = True
+    ss.k2 = []
+    ss.l2 = []
+    ss.m2 = []
+    ss.n2 = lim2
+
     
 def tab2(ss):
 

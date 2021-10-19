@@ -2,6 +2,12 @@ import pandas as pd
 import streamlit as st
 import altair as alt
 import numpy as np
+
+def reset(ss):
+    ss.a3 = []
+    ss.b3 = []
+    ss.c3 = []
+    ss.d3 = []
     
 def remove_duplicates(df):
 
