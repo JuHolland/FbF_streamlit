@@ -17,7 +17,7 @@ def main():
     df2 = pd.read_csv("Data/Probabilities/SPI_probabilities.csv")
     ss = SessionState.get(a1 = True,b1 = True,c1 = True,d1 = True,
                         e1 = [],
-                        f1 = True,g1 = False,h1 = False,i1 = False,
+                        f1 = True,g1 = True,h1 = True,i1 = True,
                         j1 = [],k1 = [],l1 = [],
                         a2 = True,b2 = True,c2 = True,d2 = True,
                         e2 = [],f2 = (float(df1.Value.min()), float(df1.Value.max())),
