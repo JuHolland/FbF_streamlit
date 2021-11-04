@@ -4,63 +4,14 @@ import streamlit as st
 import altair as alt
 import numpy as np
 
-import SessionState
-
-def reset(ss, lim1, lim2):
-    ss.a2 = True
-    ss.b2 = True
-    ss.c2 = True
-    ss.d2 = True
-    ss.e2 = []
-    ss.f2 = lim1
-    ss.g2 = True
-    ss.h2 = True
-    ss.i2 = True
-    ss.j2 = True
-    ss.k2 = []
-    ss.l2 = []
-    ss.m2 = []
-    ss.n2 = lim2
-
     
-def tab2(ss):
+def tab2():
 
     st.title("Drought occurrence \n") 
     st.markdown('#')
 
     # Keys
     keys = ['a2','b2','c2','d2','e2','f2','g2','h2','i2','j2','k2','l2','m2','n2']
-
-
-    def implementation(i):
-        if i == 0:
-            ss.a2 = st.session_state.a2
-        elif i == 1:
-            ss.b2 = st.session_state.b2
-        elif i == 2:
-            ss.c2 = st.session_state.c2
-        elif i == 3:
-            ss.d2 = st.session_state.d2
-        elif i == 4:
-            ss.e2 = st.session_state.e2
-        elif i == 5:
-            ss.f2 = st.session_state.f2
-        elif i == 6:
-            ss.g2 = st.session_state.g2
-        elif i == 7:
-            ss.h2 = st.session_state.h2
-        elif i == 8:
-            ss.i2 = st.session_state.i2
-        elif i == 9:
-            ss.j2 = st.session_state.j2
-        elif i == 10:
-            ss.k2 = st.session_state.k2
-        elif i == 11:
-            ss.l2 = st.session_state.l2
-        elif i == 12:
-            ss.m2 = st.session_state.m2
-        elif i == 13:
-            ss.n2 = st.session_state.n2
     
 
     # TABLE 1
@@ -73,18 +24,18 @@ def tab2(ss):
     # Widgets
     col1.write('District')
     all_districts = list(set(df1.District))
-    checka2 = col1.checkbox(all_districts[0], ss.a2, key=keys[0], on_change = implementation, args = [0])
-    checkb2 = col1.checkbox(all_districts[1], ss.b2, key=keys[1], on_change = implementation, args = [1])
-    checkc2 = col1.checkbox(all_districts[2], ss.c2, key=keys[2], on_change = implementation, args = [2])
-    checkd2 = col1.checkbox(all_districts[3], ss.d2, key=keys[3], on_change = implementation, args = [3])
+    checka2 = col1.checkbox(all_districts[0], True, key=keys[0])
+    checkb2 = col1.checkbox(all_districts[1], True, key=keys[1])
+    checkc2 = col1.checkbox(all_districts[2], True, key=keys[2])
+    checkd2 = col1.checkbox(all_districts[3], True, key=keys[3])
     ob_districts = [all_districts[i] for i,d in enumerate([checka2, checkb2, checkc2, checkd2]) if d]
     if len(ob_districts) == 0:
         ob_districts = all_districts
-    ob_index = col1.multiselect("Index", list(set(df1.Index)), ss.e2, key = keys[4], on_change = implementation, args = [4])
+    ob_index = col1.multiselect("Index", list(set(df1.Index)), [], key = keys[4])
     if not ob_index:
         ob_index = list(set(df1.Index))
     ob_ylim = col1.slider('Value limits',float(df1.Value.min()), float(df1.Value.max()),
-     ss.f2, key = keys[5], on_change = implementation, args = [5])
+     (float(df1.Value.min()), float(df1.Value.max())), key = keys[5])
 
     # Filtering data
     data = df1[np.logical_and(df1['Index'].isin(ob_index), df1['District'].isin(ob_districts))]
@@ -118,24 +69,24 @@ def tab2(ss):
     col1.write('District')
     all_districts = list(set(df2.District))
     pb_dist = []
-    checkg2 = col1.checkbox(all_districts[0], ss.g2, key=keys[6], on_change = implementation, args = [6])
-    checkh2 = col1.checkbox(all_districts[1], ss.h2, key=keys[7], on_change = implementation, args = [7])
-    checki2 = col1.checkbox(all_districts[2], ss.i2, key=keys[8], on_change = implementation, args = [8])
-    checkj2 = col1.checkbox(all_districts[3], ss.j2, key=keys[9], on_change = implementation, args = [9])
+    checkg2 = col1.checkbox(all_districts[0], True, key=keys[6])
+    checkh2 = col1.checkbox(all_districts[1], True, key=keys[7])
+    checki2 = col1.checkbox(all_districts[2], True, key=keys[8])
+    checkj2 = col1.checkbox(all_districts[3], True, key=keys[9])
     pb_districts = [all_districts[i] for i,d in enumerate([checkg2, checkh2, checki2, checkj2]) if d]
     if len(pb_districts) == 0:
         pb_districts = all_districts
-    pb_index = subcol1.multiselect("Index", list(set(df2.Index)), ss.k2, key = keys[10], on_change = implementation, args = [10])
+    pb_index = subcol1.multiselect("Index", list(set(df2.Index)), [], key = keys[10])
     if not pb_index:
         pb_index = list(set(df2.Index))
-    pb_cate = subcol2.multiselect("Category", list(set(df2.Category)), ss.l2, key = keys[11], on_change = implementation, args = [11])
+    pb_cate = subcol2.multiselect("Category", list(set(df2.Category)), [], key = keys[11])
     if not pb_cate:
         pb_cate = list(set(df2.Category))
-    pb_month = subcol3.multiselect("Month of forecast issue", list(set(df2.Month_of_issue)), ss.m2, key = keys[12], on_change = implementation, args = [12])
+    pb_month = subcol3.multiselect("Month of forecast issue", list(set(df2.Month_of_issue)), [], key = keys[12])
     if not pb_month:
         pb_month = list(set(df2.Month_of_issue))    
     pb_ylim = col1.slider('Value limits',float(df2.Probability.min()), float(df2.Probability.max()),
-        ss.n2, key = keys[13], on_change = implementation, args = [13])
+        (float(df2.Probability.min()), float(df2.Probability.max())), key = keys[13])
 
     # Filtering data
     data = df2[np.logical_and(df2['Index'].isin(pb_index), df2['District'].isin(pb_districts))]

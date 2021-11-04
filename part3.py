@@ -3,11 +3,6 @@ import streamlit as st
 import altair as alt
 import numpy as np
 
-def reset(ss):
-    ss.a3 = []
-    ss.b3 = []
-    ss.c3 = []
-    ss.d3 = []
     
 def remove_duplicates(df):
 
@@ -16,24 +11,12 @@ def remove_duplicates(df):
 
     return df_clean
     
-def tab3(ss):
+def tab3():
     st.title("Forecast triggers \n") 
     st.markdown('#')
 
-
     # Keys
     keys = ['a3','b3','c3','d3']
-
-
-    def implementation(i):
-        if i == 0:
-            ss.a3 = st.session_state.a3
-        elif i == 1:
-            ss.b3 = st.session_state.b3
-        elif i == 2:
-            ss.c3 = st.session_state.c3
-        elif i == 3:
-            ss.d3 = st.session_state.d3
 
     df1 = pd.read_csv("Data/Metrics/Metrics_1_dcast.csv") 
     df1['Year'] = [str(round(i)) for i in df1.Year]
@@ -44,21 +27,21 @@ def tab3(ss):
     col1, col2 = st.columns([1,1]) 
 
     # Widgets
-    windex = col1.multiselect("SPI Index", list(set(df1.Index)), ss.a3, key = keys[0], on_change = implementation, args = [0])
+    windex = col1.multiselect("SPI Index", list(set(df1.Index)), [], key = keys[0])
     if not windex:
         windex = list(set(df1.Index))
 
-    month = col1.multiselect("Month of forecast issue", list(set(df1.Month_of_issue)), ss.b3, key = keys[1], on_change = implementation, args = [1])
+    month = col1.multiselect("Month of forecast issue", list(set(df1.Month_of_issue)), [], key = keys[1])
     if not month:
         month = list(set(df1.Month_of_issue)) 
 
 
 
-    district = col2.multiselect("District", list(set(df1.District)), ss.c3, key = keys[2], on_change = implementation, args = [2])
+    district = col2.multiselect("District", list(set(df1.District)), [], key = keys[2])
     if not district:
         district = list(set(df1.District))
 
-    category = col2.multiselect("Category", list(set(df1.Category)), ss.d3, key = keys[3], on_change = implementation, args = [3])
+    category = col2.multiselect("Category", list(set(df1.Category)), [], key = keys[3])
     if not category:
         category = list(set(df1.Category))
 

@@ -3,55 +3,13 @@ import streamlit as st
 import altair as alt
 import numpy as np
 
-import SessionState
-
-def reset(ss):
-    ss.a1 = True
-    ss.b1 = True
-    ss.c1 = True
-    ss.d1 = True
-    ss.e1 = []
-    ss.f1 = True
-    ss.g1 = True
-    ss.h1 = True
-    ss.i1 = True
-    ss.j1 = []
-    ss.k1 = []
-    ss.l1 = []
-
     
-def tab1(ss):
+def tab1():
     st.title("Rainfall \n") 
     st.markdown('#')
 
     # Keys
     keys = ['a1','b1','c1','d1','e1','f1','g1','h1','i1','j1','k1','l1']
-
-    def implementation(i):
-        if i == 0:
-            ss.a1 = st.session_state.a1
-        elif i == 1:
-            ss.b1 = st.session_state.b1
-        elif i == 2:
-            ss.c1 = st.session_state.c1
-        elif i == 3:
-            ss.d1 = st.session_state.d1
-        elif i == 4:
-            ss.e1 = st.session_state.e1
-        elif i == 5:
-            ss.f1 = st.session_state.f1
-        elif i == 6:
-            ss.g1 = st.session_state.g1
-        elif i == 7:
-            ss.h1 = st.session_state.h1
-        elif i == 8:
-            ss.i1 = st.session_state.i1
-        elif i == 9:
-            ss.j1 = st.session_state.j1
-        elif i == 10:
-            ss.k1 = st.session_state.k1
-        elif i == 11:
-            ss.l1 = st.session_state.l1
 
 
     # TABLE 1
@@ -64,14 +22,14 @@ def tab1(ss):
     # Widgets
     col1.write('District')
     all_districts = list(set(df1.District))
-    checka1 = col1.checkbox(all_districts[0], ss.a1, key=keys[0], on_change = implementation, args = [0])
-    checkb1 = col1.checkbox(all_districts[1], ss.b1, key=keys[1], on_change = implementation, args = [1])
-    checkc1 = col1.checkbox(all_districts[2], ss.c1, key=keys[2], on_change = implementation, args = [2])
-    checkd1 = col1.checkbox(all_districts[3], ss.d1, key=keys[3], on_change = implementation, args = [3])
+    checka1 = col1.checkbox(all_districts[0], True, key=keys[0])
+    checkb1 = col1.checkbox(all_districts[1], True, key=keys[1])
+    checkc1 = col1.checkbox(all_districts[2], True, key=keys[2])
+    checkd1 = col1.checkbox(all_districts[3], True, key=keys[3])
     ob_districts = [all_districts[i] for i,d in enumerate([checka1, checkb1, checkc1, checkd1]) if d]
     if len(ob_districts) == 0:
         ob_districts = all_districts
-    ob_accumulation = col1.multiselect("Accumulation", list(set(df1.Accumulation)), ss.e1, key = keys[4], on_change = implementation, args = [4])
+    ob_accumulation = col1.multiselect("Accumulation", list(set(df1.Accumulation)), [], key = keys[4])
     if not ob_accumulation:
         ob_accumulation = list(set(df1.Accumulation))
 
@@ -102,20 +60,20 @@ def tab1(ss):
     col1.write('District')
     all_districts = list(set(df2.District))
     pb_dist = []
-    checkf1 = col1.checkbox(all_districts[0], ss.f1, key=keys[5], on_change = implementation, args = [5])
-    checkg1 = col1.checkbox(all_districts[1], ss.g1, key=keys[6], on_change = implementation, args = [6])
-    checkh1 = col1.checkbox(all_districts[2], ss.h1, key=keys[7], on_change = implementation, args = [7])
-    checki1 = col1.checkbox(all_districts[3], ss.i1, key=keys[8], on_change = implementation, args = [8])
+    checkf1 = col1.checkbox(all_districts[0], True, key=keys[5])
+    checkg1 = col1.checkbox(all_districts[1], True, key=keys[6])
+    checkh1 = col1.checkbox(all_districts[2], True, key=keys[7])
+    checki1 = col1.checkbox(all_districts[3], True, key=keys[8])
     pb_districts = [all_districts[i] for i,d in enumerate([checkf1, checkg1, checkh1, checki1]) if d]
     if len(pb_districts) == 0:
         pb_districts = all_districts
-    pb_accumulation = subcol1.multiselect("Acumulation", list(set(df2.Acumulation)), ss.j1, key = keys[9], on_change = implementation, args = [9])
+    pb_accumulation = subcol1.multiselect("Acumulation", list(set(df2.Acumulation)), [], key = keys[9])
     if not pb_accumulation:
         pb_accumulation = list(set(df2.Acumulation))
-    pb_ensemble = subcol2.multiselect("Ensemble Member", list(set(df2.Ensemble_number)), ss.k1, key = keys[10], on_change = implementation, args = [10])
+    pb_ensemble = subcol2.multiselect("Ensemble Member", list(set(df2.Ensemble_number)), [], key = keys[10])
     if not pb_ensemble:
         pb_ensemble = list(set(df2.Ensemble_number))
-    pb_month = subcol3.multiselect("Month of forecast issue", list(set(df2.Forecast_month)), ss.l1, key = keys[11], on_change = implementation, args = [11])
+    pb_month = subcol3.multiselect("Month of forecast issue", list(set(df2.Forecast_month)), [], key = keys[11])
     if not pb_month:
         pb_month = list(set(df2.Forecast_month))    
 
