@@ -6,6 +6,9 @@ import numpy as np
 import part1
 import part2
 import part3
+import part4
+
+
 
 def main():
 
@@ -15,7 +18,7 @@ def main():
     with st.sidebar:
 
         st.title("Navigation \n") 
-        select_part = st.sidebar.radio('Go to', ('Part 1', 'Part 2', 'Part 3'))
+        select_part = st.sidebar.radio('Go to', ('Part 1', 'Part 2', 'Part 3', 'Forecast Outlook'))
 
         st.markdown('#')
         st.title("Data \n")
@@ -27,6 +30,8 @@ def main():
         part2.tab2()
     elif select_part == 'Part 3':
         part3.tab3()
+    elif select_part == 'Forecast Outlook':
+        part4.tab4()
 
 
 

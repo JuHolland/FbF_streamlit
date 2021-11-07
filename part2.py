@@ -94,7 +94,7 @@ def tab2():
     data = data[np.logical_and(data['Probability'] > pb_ylim[0], data['Probability'] < pb_ylim[1])]
      
     # Displaying data   
-    c = alt.Chart(data).mark_circle().encode(
+    c = alt.Chart(data).mark_circle(line = True).encode(
         alt.X('Year_of_issue', title = 'Years', scale=alt.Scale(zero=False)),
         alt.Y('Probability',  title = 'Probability Values', scale=alt.Scale(domain=pb_ylim)),
         color = 'District',
