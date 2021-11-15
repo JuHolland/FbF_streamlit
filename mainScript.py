@@ -18,7 +18,7 @@ def main():
     with st.sidebar:
 
         st.title("Navigation \n") 
-        select_part = st.sidebar.radio('Go to', ('Part 1', 'Part 2', 'Part 3', 'Forecast Outlook'))
+        select_part = st.sidebar.radio('Go to', ('Part 1', 'Part 2', 'Part 3', 'SPI Outlook'))
 
         st.markdown('#')
         st.title("Data \n")
@@ -30,7 +30,7 @@ def main():
         part2.tab2()
     elif select_part == 'Part 3':
         part3.tab3()
-    elif select_part == 'Forecast Outlook':
+    elif select_part == 'SPI Outlook':
         part4.tab4()
 
 

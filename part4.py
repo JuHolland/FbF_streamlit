@@ -5,7 +5,7 @@ import numpy as np
 
     
 def tab4():
-    st.title("Forecast Outlook \n") 
+    st.title("SPI Outlook \n") 
     st.markdown('#')
 
     df2 = pd.read_csv("Data/Probabilities/SPI_probabilities.csv") 
@@ -29,6 +29,7 @@ def tab4():
     pb_cate = col1.multiselect("Category", list(set(df2.Category)), [])
     if not pb_cate:
         pb_cate = list(set(df2.Category))
+    pb_cate = sorted(pb_cate)
     pb_month = col1.multiselect("Month of forecast issue", list(set(df2.Month_of_issue)), [])
     if not pb_month:
         pb_month = list(set(df2.Month_of_issue))    
@@ -38,9 +39,10 @@ def tab4():
     data = data[np.logical_and(data['Category'].isin(pb_cate), data['Month_of_issue'].isin(pb_month))]
      
     # Displaying data  
-    colors = ['green', 'orange', 'red'] 
-    c = alt.Chart(data).mark_point(size = 150).encode(
-        alt.X('Index', title = 'Years', scale=alt.Scale(zero=False)),
+    colors_dict = {'Leve':'gold', 'Moderado':'orange', 'Severo':'red'}
+    colors = [colors_dict[cate] for cate in pb_cate] 
+    c = alt.Chart(data).mark_point(size = 150, filled = True).encode(
+        alt.X('Index', title = '', scale=alt.Scale(zero=False), sort = ['SPI ON', 'SPI ND', 'SPI DJ', 'SPI JF', 'SPI OND', 'SPI NDJ', 'SPI DJF']),
         alt.Y('Probability',  title = 'Probability Values'),
         shape = 'District',
         color = alt.Color('Category', scale=alt.Scale(range=colors)),
