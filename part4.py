@@ -39,15 +39,15 @@ def tab4():
     data = data[np.logical_and(data['Category'].isin(pb_cate), data['Month_of_issue'].isin(pb_month))]
      
     # Displaying data  
-    colors_dict = {'Leve':'gold', 'Moderado':'orange', 'Severo':'red'}
+    colors_dict = {'Leve':'yellow', 'Moderado':'orange', 'Severo':'red'}
     colors = [colors_dict[cate] for cate in pb_cate] 
     c = alt.Chart(data).mark_point(size = 150, filled = True).encode(
-        alt.X('Index', title = '', scale=alt.Scale(zero=False), sort = ['SPI ON', 'SPI ND', 'SPI DJ', 'SPI JF', 'SPI OND', 'SPI NDJ', 'SPI DJF']),
+        alt.X('Index', title = '', scale=alt.Scale(zero=False), sort = ['SPI ON', 'SPI ND', 'SPI DJ', 'SPI JF', 'SPI FM', 'SPI OND', 'SPI NDJ', 'SPI DJF', 'SPI JFM']),
         alt.Y('Probability',  title = 'Probability Values'),
         shape = 'District',
         color = alt.Color('Category', scale=alt.Scale(range=colors)),
         tooltip=['Index', 'District', 'Year_of_issue', 'Probability', 'Category', 'Month_of_issue']).properties(height=550)
     line = alt.Chart(pd.DataFrame({'y': [0]})).mark_rule().encode(y='y')
-    layers = alt.layer(line, c).configure_area(tooltip = True).interactive()
+    layers = alt.layer(line, c).configure(background='#F5F5F5').configure_area(tooltip = True).interactive()
 
     col2.altair_chart(layers, use_container_width=True)
