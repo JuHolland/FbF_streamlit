@@ -42,7 +42,7 @@ def tab4():
     colors_dict = {'Leve':'yellow', 'Moderado':'orange', 'Severo':'red'}
     colors = [colors_dict[cate] for cate in pb_cate] 
     c = alt.Chart(data).mark_point(size = 150, filled = True).encode(
-        alt.X('Index', title = '', scale=alt.Scale(zero=False), sort = ['SPI ON', 'SPI ND', 'SPI DJ', 'SPI JF', 'SPI FM', 'SPI OND', 'SPI NDJ', 'SPI DJF', 'SPI JFM']),
+        alt.X('Index', title = '', scale=alt.Scale(zero=False), sort = ['SPI ON', 'SPI ND', 'SPI DJ', 'SPI JF', 'SPI FM','SPI MA', 'SPI OND', 'SPI NDJ', 'SPI DJF', 'SPI JFM','SPI FMA']),
         alt.Y('Probability',  title = 'Probability Values'),
         shape = 'District',
         color = alt.Color('Category', scale=alt.Scale(range=colors)),
