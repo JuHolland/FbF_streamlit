@@ -21,7 +21,8 @@ def tab4():
     checki2 = col1.checkbox(all_districts[2], True)
     checkj2 = col1.checkbox(all_districts[3], True)
     checkl2 = col1.checkbox(all_districts[4], True)
-    pb_districts = [all_districts[i] for i,d in enumerate([checkg2, checkh2, checki2, checkj2,checkl2]) if d]
+    checkm2 = col1.checkbox(all_districts[5], True)
+    pb_districts = [all_districts[i] for i,d in enumerate([checkg2, checkh2, checki2, checkj2,checkl2,checkm2]) if d]
     if len(pb_districts) == 0:
         pb_districts = all_districts
     pb_year = col1.multiselect("Year_of_issue", list(set(df2.Year_of_issue)), [])
