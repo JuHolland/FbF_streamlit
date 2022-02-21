@@ -9,7 +9,7 @@ def tab1():
     st.markdown('#')
 
     # Keys
-    keys = ['a1','b1','c1','d1','e1','f1','g1','h1','i1','j1','k1','l1']
+    keys = ['a1','b1','c1','d1','e1','f1','g1','h1','i1','j1','k1','l1','m1','n1','o1','p1']
 
 
     # TABLE 1
@@ -26,10 +26,13 @@ def tab1():
     checkb1 = col1.checkbox(all_districts[1], True, key=keys[1])
     checkc1 = col1.checkbox(all_districts[2], True, key=keys[2])
     checkd1 = col1.checkbox(all_districts[3], True, key=keys[3])
-    ob_districts = [all_districts[i] for i,d in enumerate([checka1, checkb1, checkc1, checkd1]) if d]
+    checke1 = col1.checkbox(all_districts[4], True, key=keys[4])
+    checkf1 = col1.checkbox(all_districts[5], True, key=keys[5])
+    
+    ob_districts = [all_districts[i] for i,d in enumerate([checka1, checkb1, checkc1, checkd1, checke1, checkf1]) if d]
     if len(ob_districts) == 0:
         ob_districts = all_districts
-    ob_accumulation = col1.multiselect("Accumulation", list(set(df1.Accumulation)), [], key = keys[4])
+    ob_accumulation = col1.multiselect("Accumulation", list(set(df1.Accumulation)), [], key = keys[6])
     if not ob_accumulation:
         ob_accumulation = list(set(df1.Accumulation))
 
@@ -60,20 +63,23 @@ def tab1():
     col1.write('District')
     all_districts = list(set(df2.District))
     pb_dist = []
-    checkf1 = col1.checkbox(all_districts[0], True, key=keys[5])
-    checkg1 = col1.checkbox(all_districts[1], True, key=keys[6])
-    checkh1 = col1.checkbox(all_districts[2], True, key=keys[7])
-    checki1 = col1.checkbox(all_districts[3], True, key=keys[8])
-    pb_districts = [all_districts[i] for i,d in enumerate([checkf1, checkg1, checkh1, checki1]) if d]
+    checkh1 = col1.checkbox(all_districts[0], True, key=keys[7])
+    checki1 = col1.checkbox(all_districts[1], True, key=keys[8])
+    checkj1 = col1.checkbox(all_districts[2], True, key=keys[9])
+    checkk1 = col1.checkbox(all_districts[3], True, key=keys[10])
+    checkl1 = col1.checkbox(all_districts[4], True, key=keys[11])
+    checkm1 = col1.checkbox(all_districts[5], True, key=keys[12])
+    
+    pb_districts = [all_districts[i] for i,d in enumerate([checkh1, checki1, checkj1, checkk1,checkl1,checkm1]) if d]
     if len(pb_districts) == 0:
         pb_districts = all_districts
-    pb_accumulation = subcol1.multiselect("Acumulation", list(set(df2.Acumulation)), [], key = keys[9])
+    pb_accumulation = subcol1.multiselect("Acumulation", list(set(df2.Acumulation)), [], key = keys[13])
     if not pb_accumulation:
         pb_accumulation = list(set(df2.Acumulation))
-    pb_ensemble = subcol2.multiselect("Ensemble Member", list(set(df2.Ensemble_number)), [], key = keys[10])
+    pb_ensemble = subcol2.multiselect("Ensemble Member", list(set(df2.Ensemble_number)), [], key = keys[14])
     if not pb_ensemble:
         pb_ensemble = list(set(df2.Ensemble_number))
-    pb_month = subcol3.multiselect("Month of forecast issue", list(set(df2.Forecast_month)), [], key = keys[11])
+    pb_month = subcol3.multiselect("Month of forecast issue", list(set(df2.Forecast_month)), [], key = keys[15])
     if not pb_month:
         pb_month = list(set(df2.Forecast_month))    
 
