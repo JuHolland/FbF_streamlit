@@ -80,7 +80,7 @@ def tab2():
     checkn2 = col1.checkbox(all_districts[5], True, key=keys[13])
     
     
-    pb_districts = [all_districts[i] for i,d in enumerate([checki2, checkj2, checkl2, ,checkl2, checkm2,checkn2]) if d]
+    pb_districts = [all_districts[i] for i,d in enumerate([checki2, checkj2, checkk2, ,checkl2, checkm2,checkn2]) if d]
     if len(pb_districts) == 0:
         pb_districts = all_districts
     pb_index = subcol1.multiselect("Index", list(set(df2.Index)), [], key = keys[14])
