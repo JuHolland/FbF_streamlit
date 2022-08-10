@@ -12,4 +12,4 @@ For the Forecast-based financing project in Mozambique, we developped a simple g
 ## Status
 
 This dashboard is not used aymore. 
-A Tableau version of the FbF in Mozambique has been implemented instead (link)
+A Tableau version of the FbF in Mozambique has been implemented instead ([Tableau dashboard](https://analytics.wfp.org/views/FbFMozambique-Currentseason/Mapadavisogeral?:showAppBanner=false&:origin=viz_share_link&:display_count=n&:showVizHome=n))
