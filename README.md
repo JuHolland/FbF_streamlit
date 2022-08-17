@@ -5,7 +5,8 @@ For the Forecast-based financing project in Mozambique, we developped a simple g
 
 ## Usage
 
- - To run in locally: run `python -m streamlit run mainScript.py` in the cmd
+Clone the repository to your local machine.
+ - To run it locally: run `python -m streamlit run mainScript.py` in the cmd
  - To open the app:  https://share.streamlit.io/juholland/dashboard_fbf/main/mainScript.py
  
  
