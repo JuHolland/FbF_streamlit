@@ -13,4 +13,4 @@ Clone the repository to your local machine.
 ## Status
 
 This dashboard is not used aymore. 
-A Tableau version of the FbF in Mozambique has been implemented instead ([Tableau dashboard](https://analytics.wfp.org/views/FbFMozambique-Currentseason/Mapadavisogeral?:showAppBanner=false&:origin=viz_share_link&:display_count=n&:showVizHome=n))
+A Tableau version of the FbF in Mozambique has been implemented instead ([Tableau dashboard](https://analytics.wfp.org/t/Public/views/FbFMozambique-Currentseason_16608371100510/Mapadavisogeral?:showAppBanner=false&:display_count=n&:showVizHome=n&:origin=viz_share_link))
